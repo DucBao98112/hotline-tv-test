@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="vi"> <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng nhập</title>
+    <style>
+        /* CSS cơ bản cho giao diện di động, đáp ứng (responsive design) */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f5f7fa; /* Màu nền nhẹ nhàng */
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box; /* Đảm bảo padding không làm tràn ra ngoài */
+        }
+        .login-container {
+            background-color: #ffffff; /* Nền trắng cho form */
+            padding: 35px;
+            border-radius: 10px; /* Bo tròn góc */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Hiệu ứng đổ bóng nhẹ */
+            width: 100%;
+            max-width: 400px; /* Giới hạn chiều rộng tối đa */
+            text-align: center;
+        }
+        h2 {
+            margin-bottom: 30px;
+            color: #333;
+            font-size: 28px;
+            font-weight: 600;
+        }
+        .input-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+            font-weight: 500;
+            font-size: 15px;
+        }
+        .input-group input[type="text"],
+        .input-group input[type="password"] {
+            width: 100%;
+            padding: 14px 12px;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            font-size: 16px;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease; /* Hiệu ứng khi focus */
+        }
+        .input-group input[type="text"]:focus,
+        .input-group input[type="password"]:focus {
+            border-color: #007bff; /* Màu xanh khi focus */
+            outline: none; /* Bỏ outline mặc định của trình duyệt */
+        }
+        button {
+            width: 100%;
+            padding: 14px;
+            background-color: #007bff; /* Màu xanh primary */
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease; /* Hiệu ứng hover và click */
+            margin-top: 25px;
+        }
+        button:hover {
+            background-color: #0056b3; /* Màu xanh đậm hơn khi hover */
+            transform: translateY(-1px); /* Nút hơi nhấc lên */
+        }
+        .links {
+            margin-top: 25px;
+            font-size: 15px;
+        }
+        .links a {
+            color: #007bff;
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+        .links a:hover {
+            color: #0056b3;
+            text-decoration: underline;
+        }
+        .error-message {
+            color: #e74c3c; /* Màu đỏ cho lỗi */
+            margin-top: 15px;
+            font-size: 14px;
+            display: none; /* Ban đầu ẩn */
+        }
+        .language-switcher {
+            margin-top: 25px;
+            display: flex;
+            justify-content: center;
+            gap: 10px; /* Khoảng cách giữa các nút ngôn ngữ */
+        }
+        .language-switcher button {
+            width: auto; /* Điều chỉnh lại chiều rộng cho nút ngôn ngữ */
+            padding: 8px 15px;
+            font-size: 14px;
+            background-color: #6c757d; /* Màu xám cho nút ngôn ngữ */
+        }
+        .language-switcher button.active {
+            background-color: #007bff; /* Màu xanh cho ngôn ngữ đang chọn */
+        }
+        .language-switcher button:hover {
+            background-color: #5a6268;
+        }
+
+        /* Media Queries cho các màn hình nhỏ hơn */
+        @media (max-width: 480px) {
+            .login-container {
+                padding: 25px 20px; /* Giảm padding trên màn hình nhỏ hơn */
+                margin: 10px;
+            }
+            h2 {
+                font-size: 24px;
+                margin-bottom: 20px;
+            }
+            .input-group input {
+                padding: 12px;
+                font-size: 15px;
+            }
+            button {
+                padding: 12px;
+                font-size: 16px;
+            }
+            .links {
+                font-size: 13px;
+                margin-top: 15px;
+            }
+            .language-switcher button {
+                padding: 6px 12px;
+                font-size: 13px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2 id="loginTitle">Đăng nhập</h2>
+        <form id="loginForm">
+            <div class="input-group">
+                <label for="username" id="usernameLabel">Tên đăng nhập hoặc Email</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="input-group">
+                <label for="password" id="passwordLabel">Mật khẩu</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit" id="loginButton">Đăng nhập</button>
+            <p class="error-message" id="errorMessage"></p>
+        </form>
+        <div class="links">
+            <a href="#" id="forgotPasswordLink">Quên mật khẩu?</a>
+            <a href="#" id="registerLink">Đăng ký</a>
+        </div>
+        <div class="language-switcher">
+            <button id="langEnBtn" onclick="setLanguage('en')">English</button>
+            <button id="langViBtn" onclick="setLanguage('vi')">Tiếng Việt</button>
+            <button id="langJaBtn" onclick="setLanguage('ja')">日本語</button>
+        </div>
+    </div>
+
+    <script>
+        // --- Định nghĩa dữ liệu ngôn ngữ ---
+        const lang_en = {
+            "login_title": "Login",
+            "username_label": "Username or Email",
+            "password_label": "Password",
+            "login_button": "Log In",
+            "forgot_password": "Forgot password?",
+            "register_link": "Register",
+            "error_message_empty_fields": "Please enter both username and password.",
+            "error_message_invalid_credentials": "Invalid username or password.",
+            "error_message_generic": "An error occurred. Please try again later.",
+            "login_success": "Login successful!"
+        };
+
+        const lang_vi = {
+            "login_title": "Đăng nhập",
+            "username_label": "Tên đăng nhập hoặc Email",
+            "password_label": "Mật khẩu",
+            "login_button": "Đăng nhập",
+            "forgot_password": "Quên mật khẩu?",
+            "register_link": "Đăng ký",
+            "error_message_empty_fields": "Vui lòng nhập đầy đủ tên đăng nhập và mật khẩu.",
+            "error_message_invalid_credentials": "Tên đăng nhập hoặc mật khẩu không đúng.",
+            "error_message_generic": "Có lỗi xảy ra. Vui lòng thử lại sau.",
+            "login_success": "Đăng nhập thành công!"
+        };
+
+        const lang_ja = {
+            "login_title": "ログイン",
+            "username_label": "ユーザー名またはEメール",
+            "password_label": "パスワード",
+            "login_button": "ログイン",
+            "forgot_password": "パスワードをお忘れですか？",
+            "register_link": "新規登録",
+            "error_message_empty_fields": "ユーザー名とパスワードの両方を入力してください。",
+            "error_message_invalid_credentials": "ユーザー名またはパスワードが正しくありません。",
+            "error_message_generic": "エラーが発生しました。後でもう一度お試しください。",
+            "login_success": "ログインしました！"
+        };
+
+
+        const languages = {
+            'en': lang_en,
+            'vi': lang_vi,
+            'ja': lang_ja // Thêm tiếng Nhật vào danh sách ngôn ngữ
+        };
+
+        let currentLang = 'vi'; // Ngôn ngữ mặc định khi khởi tạo
+
+        // --- Hàm cập nhật nội dung HTML theo ngôn ngữ ---
+        function updateContent() {
+            const texts = languages[currentLang];
+
+            // Cập nhật các phần tử giao diện
+            document.getElementById('loginTitle').textContent = texts.login_title;
+            document.getElementById('usernameLabel').textContent = texts.username_label;
+            document.getElementById('passwordLabel').textContent = texts.password_label;
+            document.getElementById('loginButton').textContent = texts.login_button;
+            document.getElementById('forgotPasswordLink').textContent = texts.forgot_password;
+            document.getElementById('registerLink').textContent = texts.register_link;
+
+            // Cập nhật trạng thái nút ngôn ngữ
+            document.querySelectorAll('.language-switcher button').forEach(button => {
+                button.classList.remove('active');
+            });
+            document.getElementById(`lang${currentLang.charAt(0).toUpperCase() + currentLang.slice(1)}Btn`).classList.add('active');
+
+            // Đảm bảo thông báo lỗi được ẩn hoặc cập nhật nếu có
+            const errorMessageElem = document.getElementById('errorMessage');
+            if (errorMessageElem.style.display === 'block') {
+                 if (!document.getElementById('username').value || !document.getElementById('password').value) {
+                     errorMessageElem.textContent = texts.error_message_empty_fields;
+                 } else {
+                     errorMessageElem.style.display = 'none';
+                 }
+            }
+        }
+
+        // --- Hàm thay đổi ngôn ngữ ---
+        function setLanguage(lang) {
+            if (languages[lang]) {
+                currentLang = lang;
+                updateContent();
+                // Lưu lựa chọn ngôn ngữ của người dùng vào localStorage để duy trì giữa các phiên
+                localStorage.setItem('appLang', lang);
+                // Cập nhật thuộc tính lang của thẻ html
+                document.documentElement.lang = lang;
+            } else {
+                console.warn('Ngôn ngữ không được hỗ trợ:', lang);
+            }
+        }
+
+        // --- Logic xử lý form đăng nhập ---
+        document.getElementById('loginForm').addEventListener('submit', async function(event) {
+            event.preventDefault(); // Ngăn chặn form gửi đi theo cách truyền thống
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const errorMessageElem = document.getElementById('errorMessage');
+            const texts = languages[currentLang]; // Lấy văn bản ngôn ngữ hiện tại để hiển thị lỗi
+
+            errorMessageElem.style.display = 'none'; // Ẩn thông báo lỗi cũ
+
+            // Kiểm tra cơ bản ở phía client
+            if (!username || !password) {
+                errorMessageElem.textContent = texts.error_message_empty_fields;
+                errorMessageElem.style.display = 'block';
+                return;
+            }
+
+            console.log('Đang gửi yêu cầu đăng nhập...');
+            console.log('Tên đăng nhập:', username);
+            console.log('Mật khẩu:', password);
+
+            try {
+                // **Đây là URL giả lập.** Bạn cần thay thế 'https://api.example.com/login'
+                // bằng API endpoint thực tế của máy chủ backend của bạn.
+                const response = await fetch('https://api.example.com/login', { // Thay thế URL này!
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ username, password })
+                });
+
+                const data = await response.json(); // Phản hồi từ server (ví dụ: { success: true, token: '...' } hoặc { success: false, message: '...' })
+
+                if (response.ok) { // Nếu trạng thái HTTP là 2xx (thành công)
+                    alert(texts.login_success); // Thông báo đăng nhập thành công theo ngôn ngữ
+                    // Ví dụ: Lưu token vào localStorage và chuyển hướng
+                    localStorage.setItem('authToken', data.token); // Lưu token nhận được từ backend
+                    window.location.href = 'dashboard.html'; // Chuyển hướng đến trang chính của app
+                } else {
+                    // Xử lý lỗi từ server (ví dụ: thông tin đăng nhập sai)
+                    // Server nên trả về message lỗi cụ thể, nếu không thì dùng message mặc định
+                    errorMessageElem.textContent = data.message || texts.error_message_invalid_credentials;
+                    errorMessageElem.style.display = 'block';
+                }
+            } catch (error) {
+                console.error('Lỗi khi gửi yêu cầu đăng nhập:', error);
+                errorMessageElem.textContent = texts.error_message_generic;
+                errorMessageElem.style.display = 'block';
+            }
+        });
+
+        // --- Khởi tạo ngôn ngữ khi trang tải xong ---
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('appLang');
+            if (savedLang) {
+                setLanguage(savedLang); // Tải ngôn ngữ đã lưu
+            } else {
+                // Nếu chưa có ngôn ngữ nào được lưu, thử phát hiện ngôn ngữ trình duyệt
+                const browserLang = navigator.language.split('-')[0]; // Lấy 'en' từ 'en-US', 'ja' từ 'ja-JP'
+                if (languages[browserLang]) {
+                    setLanguage(browserLang);
+                } else {
+                    setLanguage(currentLang); // Hoặc dùng ngôn ngữ mặc định (vi)
+                }
+            }
+        });
+    </script>
+</body>
+</html>
