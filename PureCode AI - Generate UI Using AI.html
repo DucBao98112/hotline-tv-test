@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatApp - Giống Line</title>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #00B900;
+            --secondary-color: #E6F8E6;
+            --background-color: #F0F2F5;
+            --sidebar-bg: #FFFFFF;
+            --chat-bg: #E5DDD5;
+            --text-primary: #0F0F0F;
+            --text-secondary: #65676B;
+            --border-color: #E0E0E0;
+            --sent-bubble-bg: #D9FDD3;
+            --received-bubble-bg: #FFFFFF;
+        }
+
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-primary);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .app-container {
+            display: flex;
+            width: 95%;
+            height: 95vh;
+            max-width: 1400px;
+            background: var(--sidebar-bg);
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+        }
+
+        /* --- Sidebar --- */
+        .sidebar {
+            width: 30%;
+            min-width: 300px;
+            max-width: 400px;
+            border-right: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sidebar-header {
+            padding: 16px;
+            border-bottom: 1px solid var(--border-color);
+            background: #F7F7F7;
+        }
+
+        .search-add-container {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .search-bar {
+            flex-grow: 1;
+            position: relative;
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 10px 10px 10px 40px;
+            border-radius: 20px;
+            border: 1px solid #E0E0E0;
+            background: #FFFFFF;
+            outline: none;
+            font-size: 14px;
+        }
+
+        .search-bar i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-secondary);
+        }
+
+        .add-friend-btn {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 38px;
+            height: 38px;
+            font-size: 18px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .contact-list {
+            flex-grow: 1;
+            overflow-y: auto;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            padding: 12px 16px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .contact-item:hover {
+            background-color: #F0F0F0;
+        }
+
+        .contact-item.active {
+            background-color: var(--secondary-color);
+        }
+
+        .contact-item img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 12px;
+            object-fit: cover;
+        }
+
+        .contact-info {
+            flex-grow: 1;
+        }
+
+        .contact-info .name {
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        .contact-info .status {
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        /* --- Chat Window --- */
+        .chat-window {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            background-image: url('https://i.pinimg.com/736x/8c/98/99/8c98994518b575bfd8c949e91d20548b.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .chat-placeholder {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            text-align: center;
+            color: var(--text-secondary);
+        }
+
+        .chat-placeholder i {
+            font-size: 60px;
+            margin-bottom: 20px;
+        }
+
+        .chat-header {
+            display: flex;
+            align-items: center;
+            padding: 10px 16px;
+            background: #F7F7F7;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .chat-header img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 12px;
+            object-fit: cover;
+        }
+
+        .chat-header-info {
+            flex-grow: 1;
+        }
+
+        .chat-header-info .name {
+            font-weight: 600;
+        }
+
+        .chat-header-info .phone {
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        .chat-actions button {
+            background: none;
+            border: none;
+            font-size: 20px;
+            color: var(--text-secondary);
+            margin-left: 20px;
+            cursor: pointer;
+        }
+
+        .message-area {
+            flex-grow: 1;
+            padding: 20px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .message {
+            display: flex;
+            margin-bottom: 15px;
+            max-width: 65%;
+        }
+
+        .message-bubble {
+            padding: 10px 15px;
+            border-radius: 18px;
+            font-size: 15px;
+        }
+
+        .message.sent {
+            align-self: flex-end;
+        }
+
+        .message.sent .message-bubble {
+            background-color: var(--sent-bubble-bg);
+            border-bottom-right-radius: 4px;
+        }
+
+        .message.received {
+            align-self: flex-start;
+        }
+
+        .message.received .message-bubble {
+            background-color: var(--received-bubble-bg);
+            border-bottom-left-radius: 4px;
+        }
+
+        .message-input {
+            display: flex;
+            align-items: center;
+            padding: 10px 20px;
+            background: #F0F0F0;
+        }
+
+        .message-input input {
+            flex-grow: 1;
+            padding: 12px 18px;
+            border: none;
+            border-radius: 22px;
+            outline: none;
+            font-size: 15px;
+        }
+
+        .message-input button {
+            background: none;
+            border: none;
+            font-size: 22px;
+            color: var(--text-secondary);
+            margin-left: 15px;
+            cursor: pointer;
+        }
+
+        .message-input .send-btn {
+            color: var(--primary-color);
+        }
+
+        /* Modal for Add Friend */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 400px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .modal-content h2 {
+            margin-top: 0;
+        }
+
+        .modal-content input {
+            width: calc(100% - 40px);
+            padding: 10px;
+            margin-top: 10px;
+            margin-bottom: 20px;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+        }
+
+        .modal-buttons button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 0 10px;
+        }
+
+        .modal-buttons .confirm-btn {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .close-btn {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="search-add-container">
+                    <div class="search-bar">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="contact-search" placeholder="Tìm kiếm bạn bè...">
+                    </div>
+                    <button class="add-friend-btn" id="add-friend-btn" title="Thêm bạn bè">
+                        <i class="fas fa-user-plus"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="contact-list" id="contact-list">
+                <!-- Contact items will be injected by JavaScript -->
+            </div>
+        </aside>
+
+        <main class="chat-window" id="chat-window">
+            <!-- Chat content will be injected by JavaScript -->
+            <div class="chat-placeholder" id="chat-placeholder">
+                <i class="fas fa-comments"></i>
+                <h2>Chào mừng đến với ChatApp</h2>
+                <p>Chọn một cuộc trò chuyện để bắt đầu nhắn tin.</p>
+            </div>
+        </main>
+    </div>
+
+    <!-- Add Friend Modal -->
+    <div id="add-friend-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" id="close-modal-btn">&times;</span>
+            <h2>Thêm bạn bè</h2>
+            <p>Nhập số điện thoại để tìm và thêm bạn mới.</p>
+            <input type="tel" id="add-friend-phone" placeholder="Số điện thoại">
+            <div class="modal-buttons">
+                <button class="confirm-btn" id="confirm-add-friend">Tìm kiếm</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const contacts = [
+                {
+                    id: 1, name: "An An", phone: "+84987654321", avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=500", status: "Đang hoạt động", messages: [
+                        { text: "Chào bạn, mình làm quen nhé!", type: "received" },
+                        { text: "Chào bạn, rất vui được làm quen.", type: "sent" },
+                        { text: "Bạn đang làm gì vậy?", type: "received" },
+                    ]
+                },
+                {
+                    id: 2, name: "Bảo Bình", phone: "+84123456789", avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=500", status: "Hoạt động 2 giờ trước", messages: [
+                        { text: "Dự án hôm qua thế nào rồi?", type: "received" },
+                    ]
+                },
+                { id: 3, name: "Minh Châu", phone: "+84555666777", avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=500", status: "Đang bận", messages: [] },
+                { id: 4, name: "Đức Dũng", phone: "+84999888777", avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500", status: "Đang hoạt động", messages: [] },
+            ];
+
+            const contactListEl = document.getElementById('contact-list');
+            const chatWindowEl = document.getElementById('chat-window');
+            const contactSearchEl = document.getElementById('contact-search');
+            let activeContactId = null;
+
+            function renderContacts(filter = '') {
+                contactListEl.innerHTML = '';
+                const filteredContacts = contacts.filter(c =>
+                    c.name.toLowerCase().includes(filter.toLowerCase()) ||
+                    c.phone.includes(filter)
+                );
+
+                filteredContacts.forEach(contact => {
+                    const contactEl = document.createElement('div');
+                    contactEl.className = 'contact-item';
+                    if (contact.id === activeContactId) {
+                        contactEl.classList.add('active');
+                    }
+                    contactEl.dataset.id = contact.id;
+                    contactEl.innerHTML = `
+                        <img src="${contact.avatar}" alt="${contact.name}">
+                        <div class="contact-info">
+                            <div class="name">${contact.name}</div>
+                            <div class="status">${contact.status}</div>
+                        </div>
+                    `;
+                    contactEl.addEventListener('click', () => {
+                        activeContactId = contact.id;
+                        renderChat(contact.id);
+                        renderContacts(contactSearchEl.value); // Re-render to update active state
+                    });
+                    contactListEl.appendChild(contactEl);
+                });
+            }
+
+            function renderChat(contactId) {
+                const contact = contacts.find(c => c.id === contactId);
+                if (!contact) {
+                    chatWindowEl.innerHTML = `
+                        <div class="chat-placeholder">
+                            <i class="fas fa-comments"></i>
+                            <h2>Chào mừng đến với ChatApp</h2>
+                            <p>Chọn một cuộc trò chuyện để bắt đầu nhắn tin.</p>
+                        </div>`;
+                    return;
+                }
+
+                let messagesHtml = contact.messages.map(msg => `
+                    <div class="message ${msg.type}">
+                        <div class="message-bubble">${msg.text}</div>
+                    </div>
+                `).join('');
+
+                chatWindowEl.innerHTML = `
+                    <header class="chat-header">
+                        <img src="${contact.avatar}" alt="${contact.name}">
+                        <div class="chat-header-info">
+                            <div class="name">${contact.name}</div>
+                            <div class="phone">${contact.phone}</div>
+                        </div>
+                        <div class="chat-actions">
+                            <button title="Gọi thoại"><i class="fas fa-phone-alt"></i></button>
+                            <button title="Gọi video"><i class="fas fa-video"></i></button>
+                        </div>
+                    </header>
+                    <div class="message-area" id="message-area">
+                        ${messagesHtml}
+                    </div>
+                    <footer class="message-input">
+                        <button><i class="fas fa-paperclip"></i></button>
+                        <input type="text" id="message-text" placeholder="Nhập tin nhắn...">
+                        <button class="send-btn" id="send-btn"><i class="fas fa-paper-plane"></i></button>
+                    </footer>
+                `;
+
+                const messageArea = document.getElementById('message-area');
+                messageArea.scrollTop = messageArea.scrollHeight;
+
+                const sendBtn = document.getElementById('send-btn');
+                const messageText = document.getElementById('message-text');
+
+                function sendMessage() {
+                    const text = messageText.value.trim();
+                    if (text) {
+                        contact.messages.push({ text, type: 'sent' });
+                        messageText.value = '';
+                        renderChat(contactId);
+                    }
+                }
+
+                sendBtn.addEventListener('click', sendMessage);
+                messageText.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') {
+                        sendMessage();
+                    }
+                });
+            }
+
+            // Search functionality
+            contactSearchEl.addEventListener('input', (e) => {
+                renderContacts(e.target.value);
+            });
+
+            // Modal functionality
+            const modal = document.getElementById('add-friend-modal');
+            const addFriendBtn = document.getElementById('add-friend-btn');
+            const closeModalBtn = document.getElementById('close-modal-btn');
+            const confirmAddBtn = document.getElementById('confirm-add-friend');
+            const phoneInput = document.getElementById('add-friend-phone');
+
+            addFriendBtn.onclick = () => modal.style.display = "flex";
+            closeModalBtn.onclick = () => modal.style.display = "none";
+            window.onclick = (event) => {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+            confirmAddBtn.onclick = () => {
+                const phone = phoneInput.value.trim();
+                if (phone) {
+                    alert(`Đã gửi yêu cầu kết bạn đến số: ${phone}`);
+                    phoneInput.value = '';
+                    modal.style.display = "none";
+                } else {
+                    alert("Vui lòng nhập số điện thoại.");
+                }
+            };
+
+            // Initial render
+            renderContacts();
+        });
+    </script>
+
+</body>
+
+</html>
