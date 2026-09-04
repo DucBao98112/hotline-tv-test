@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ChatApp - Nâng cao</title>
+    <title>Call phone</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -145,6 +145,7 @@
                 <select id="language-selector">
                     <option value="vi">Tiếng Việt</option>
                     <option value="en">English</option>
+                    <option value="ja">japan</option>
                 </select>
             </div>
             <div class="sidebar-header">
@@ -190,6 +191,9 @@
                 },
                 en: {
                     searchPlaceholder: "Search friends...", addFriendTitle: "Add Friend", welcomeHeader: "Welcome to ChatApp", welcomeMessage: "Select a conversation to start messaging.", modalHeader: "Add Friend", modalMessage: "Enter a phone number to find and add a new friend.", modalPhonePlaceholder: "Phone number", modalSearchButton: "Search", callTitle: "Voice Call", videoCallTitle: "Video Call", messagePlaceholder: "Type a message...", addFriendSuccess: (phone) => `Friend request sent to: ${phone}`, addFriendError: "Please enter a phone number.", status: { active: "Active", busy: "Busy", lastSeen: "Active 2 hours ago" }, autoReplyLabel: "Auto-Reply", imageSent: "Sent an image.", attachTitle: "Attach an image", emojiTitle: "Choose an emoji"
+                },
+                ja: {
+                    searchPlaceholder: "友達を検索...",addFriendTitle: "友達を追加",welcomeHeader: "ChatAppへようこそ",welcomeMessage: "会話を選択してメッセージを始めてください。",modalHeader: "友達を追加",modalMessage: "電話番号を入力して新しい友達を探して追加します。",modalPhonePlaceholder: "電話番号",modalSearchButton: "検索",callTitle: "音声通話",videoCallTitle: "ビデオ通話",messagePlaceholder: "メッセージを入力...",addFriendSuccess: (phone) => `友達リクエストを送信しました: ${phone}`,addFriendError: "電話番号を入力してください。",status: {active: "オンライン",busy: "取り込み中",lastSeen: "2時間前にアクティブ"},autoReplyLabel: "自動返信",imageSent: "画像を送信しました。",attachTitle: "画像を添付",emojiTitle: "絵文字を選択"
                 }
             };
 
