@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="65dp"
+    android:layout_marginBottom="-8dp"
+    android:descendantFocusability="afterDescendants"
+    android:gravity="center_vertical">
+
+    <LinearLayout
+        android:id="@+id/layout_info"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@drawable/bg_list_item_top"
+        android:focusable="true"
+        android:gravity="center_vertical"
+        android:nextFocusRight="@id/btn_info"
+        android:elevation="1dp"
+        android:paddingHorizontal="@dimen/padding_small">
+
+        <TextView
+            android:id="@+id/tv_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/padding_normal"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="?attr/text_color_light"
+            android:textSize="@dimen/font_card_text_normal"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="12345" />
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/padding_normal"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="?attr/text_color_light"
+            android:textSize="@dimen/font_card_text_normal"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="12345" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:textColor="@color/gray_text_color"
+            android:textSize="@dimen/font_size_small"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="金曜日" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/btn_info"
+        android:layout_width="65dp"
+        android:layout_height="match_parent"
+        android:layout_marginStart="-8dp"
+        android:background="@drawable/bg_box_normal_white"
+        android:elevation="1dp"
+        android:focusable="true">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:background="@null"
+            android:nextFocusLeft="@id/layout_info"
+            android:scaleType="centerInside"
+            android:src="@drawable/list_menu_icn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:tint="?attr/text_color_light" />
+    </FrameLayout>
+
+</LinearLayout>

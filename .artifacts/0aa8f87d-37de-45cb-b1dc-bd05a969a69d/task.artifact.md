@@ -1,0 +1,6 @@
+- [ ] Update `CpuVideoProcessor.kt`:
+    - [ ] Implement `Rect`-based `CENTER_CROP` for full-screen background
+    - [ ] Synchronize rotation and mirror logic for natural selfie effect
+    - [ ] Recalculate AI inverse matrix for precise mask alignment
+- [ ] Ensure `CallSession.kt` and `RoomSession.kt` use correct local preview settings
+- [ ] Verify full-screen coverage and mirror behavior

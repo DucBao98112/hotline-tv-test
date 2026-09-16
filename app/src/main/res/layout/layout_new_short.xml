@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="?attr/box_background_color">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/padding_normal">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lbl_new_short"
+            android:textColor="?attr/text_color_light"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/lbl_short"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/lbl_short"
+            android:textColor="?attr/text_color_light"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_title" />
+
+        <TextView
+            android:id="@+id/lbl_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/lbl_recent_name"
+            android:textColor="?attr/text_color_light"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/lbl_short" />
+
+        <TextView
+            android:id="@+id/lbl_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="ID"
+            android:textColor="?attr/text_color_light"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lbl_name" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/bar1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="end"
+            app:constraint_referenced_ids="lbl_id, lbl_name, lbl_short" />
+
+        <TextView
+            android:id="@+id/tv_short"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:textColor="?attr/text_color_light"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@id/lbl_short"
+            app:layout_constraintStart_toEndOf="@id/bar1"
+            app:layout_constraintTop_toTopOf="@id/lbl_short"
+            tools:text="1" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/edt_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:inputType="text"
+            android:maxLength="50"
+            android:maxLines="1"
+            android:textColor="?attr/text_color_light"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@id/lbl_name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/bar1"
+            app:layout_constraintTop_toTopOf="@id/lbl_name"
+            tools:text="Abbcd" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/tv_id"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:inputType="number"
+            android:maxLength="16"
+            android:maxLines="1"
+            android:textColor="?attr/text_color_light"
+            android:textSize="16sp"
+            android:imeOptions="actionDone"
+            app:layout_constraintBottom_toBottomOf="@id/lbl_id"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/bar1"
+            app:layout_constraintTop_toTopOf="@id/lbl_id"
+            tools:text="0132" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/btnUpdate"
+            style="@style/normal_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="16dp"
+            android:text="@string/btn_update"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/btn_cancel"
+            android:layout_marginStart="8dp" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/btn_cancel"
+            style="@style/normal_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_cancel"
+            app:layout_constraintBottom_toBottomOf="@id/btnUpdate"
+            app:layout_constraintEnd_toStartOf="@id/btnUpdate"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

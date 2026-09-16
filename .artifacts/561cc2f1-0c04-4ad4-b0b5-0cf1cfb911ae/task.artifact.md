@@ -1,0 +1,5 @@
+- [x] Create `CpuVideoProcessor.kt` for CPU-based segmentation
+- [x] Fix memory leak and performance in `UsbCameraSource.kt`
+- [x] Integrate `CpuVideoProcessor` in `CallSession.kt`
+- [x] Integrate `CpuVideoProcessor` in `RoomSession.kt`
+- [x] Verify build

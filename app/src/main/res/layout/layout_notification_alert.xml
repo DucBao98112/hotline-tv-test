@@ -1,0 +1,62 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="600dp"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_chat_input"
+    android:backgroundTint="@color/chat_panel_bg"
+    android:elevation="8dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="12dp">
+
+        <ImageView
+            android:id="@+id/imv_logo"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_logo_transparent" />
+
+        <TextView
+            android:id="@+id/tv_message"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_weight="1"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/btn_open"
+            style="@style/secondary_button"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/bg_chat_me"
+            android:backgroundTint="@color/accept_button"
+            android:gravity="center"
+            android:paddingHorizontal="20dp"
+            android:text="@string/btn_open_app"
+            android:textColor="@color/white"
+            android:textSize="13sp" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/btn_close"
+            style="@style/secondary_button"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:background="@drawable/bg_chat_me"
+            android:backgroundTint="@color/decline_button"
+            android:gravity="center"
+            android:paddingHorizontal="20dp"
+            android:text="@string/btn_close"
+            android:textColor="@color/white"
+            android:textSize="13sp" />
+    </LinearLayout>
+
+</FrameLayout>

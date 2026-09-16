@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingVertical="@dimen/padding_large"
+    android:layout_gravity="center">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_box_normal"
+        android:backgroundTint="?attr/box_background_color"
+        android:layout_gravity="center"
+        android:padding="@dimen/padding_normal">
+
+        <view
+            class="com.ntt.skyway.core.content.sink.SurfaceViewRenderer"
+            android:id="@+id/preview_video"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintDimensionRatio="16:9"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintHeight_percent="0.6"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="100dp"
+            android:text="@string/txt_back"
+            style="@style/secondary_button"
+            android:layout_marginStart="@dimen/padding_small"
+            app:layout_constraintStart_toEndOf="@id/preview_video"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <ImageButton
+            android:id="@+id/btn_switch_camera"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/padding_small"
+            android:background="@null"
+            android:focusable="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_camera_switch"
+            app:layout_constraintBottom_toBottomOf="@id/preview_video"
+            app:layout_constraintEnd_toEndOf="@id/preview_video"
+            app:tint="@color/button_text_color" />
+        
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gl_center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintGuide_percent="0.5"
+            android:orientation="vertical"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imv_microphone"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            app:srcCompat="@drawable/button_mic_level"
+            app:layout_constraintTop_toTopOf="@id/sw_microphone"
+            app:layout_constraintBottom_toBottomOf="@id/sw_microphone"
+            app:layout_constraintEnd_toStartOf="@id/sw_microphone"/>
+
+        <TextView
+            android:id="@+id/tv_room_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_normal"
+            android:text="@string/lbl_room_type"
+            android:textColor="@android:color/black"
+            app:layout_constraintStart_toStartOf="@id/imv_microphone"
+            app:layout_constraintTop_toBottomOf="@id/imv_microphone"/>
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/sw_microphone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lbl_mic"
+            app:switchPadding="5dp"
+            android:layout_marginEnd="@dimen/padding_large"
+            android:layout_marginTop="@dimen/padding_normal"
+            app:layout_constraintTop_toBottomOf="@id/preview_video"
+            app:layout_constraintEnd_toStartOf="@id/gl_center_vertical"
+            />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/sw_camera"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lbl_camera"
+            app:layout_constraintStart_toEndOf="@id/imv_camera"
+            app:layout_constraintTop_toTopOf="@id/imv_camera"
+            app:layout_constraintBottom_toBottomOf="@id/imv_camera"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imv_camera"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="@dimen/padding_large"
+            app:srcCompat="@drawable/button_camera_level"
+            app:layout_constraintTop_toTopOf="@id/imv_microphone"
+            app:layout_constraintStart_toEndOf="@id/gl_center_vertical"
+            app:layout_constraintBottom_toBottomOf="@id/imv_microphone"/>
+
+        <RadioGroup
+            android:id="@+id/rdg_room_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="@id/tv_room_type"
+            app:layout_constraintEnd_toEndOf="@id/sw_camera"
+            app:layout_constraintTop_toTopOf="@id/tv_room_type">
+
+            <RadioButton
+                android:id="@+id/rd_mesh"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="@string/lbl_room_mesh"
+                android:textAllCaps="true" />
+
+            <RadioButton
+                android:id="@+id/rd_sfu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/padding_small"
+                android:text="@string/lbl_room_sfu"
+                android:textAllCaps="true" />
+        </RadioGroup>
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btnJoin"
+            android:layout_width="200dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/padding_normal"
+            android:layout_marginBottom="@dimen/padding_small"
+            android:background="@drawable/bg_button_call"
+            app:layout_constraintDimensionRatio="1102:374"
+            android:padding="20dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/call_group_icn"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <requestFocus />
+        </androidx.appcompat.widget.AppCompatImageButton>
+        <androidx.constraintlayout.widget.Group
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:constraint_referenced_ids="tv_room_type, rdg_room_type"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

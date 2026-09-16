@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/incall_graph"
+    app:startDestination="@id/InCall">
+    <fragment
+        android:id="@+id/InCall"
+        android:name="com.gc.waravi.views.fragments.InCallFragment"
+        tools:layout="@layout/fragment_in_call"
+        android:label="fragment_incall">
+        <action
+            android:id="@+id/CallEnded"
+            app:destination="@id/PopUp"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/PopUp"
+        android:name="com.gc.waravi.views.fragments.PopupFragment"
+        tools:layout="@layout/fragment_popup"
+        android:label="frangment_popup">
+        <argument
+            android:name="message"
+            android:defaultValue="@null"
+            app:argType="string" />
+    </fragment>
+
+</navigation>

@@ -1,0 +1,9 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="38.857dp"
+    android:height="38.857dp"
+    android:viewportWidth="38.857"
+    android:viewportHeight="38.857">
+  <path
+      android:pathData="M19.429,-0.0031A19.428,19.428 0,1 0,38.861 19.428,19.428 19.428,0 0,0 19.429,-0.0031ZM19.236,5.5209a14.021,14.021 0,0 1,10.719 5.029l3.633,-1.742 -2.4,8.63L22.961,13.907l3.649,-1.75a10.4,10.4 0,0 0,-17.78 7.334h-3.561A13.983,13.983 0,0 1,19.236 5.524ZM19.621,33.3289a14.021,14.021 0,0 1,-10.719 -5.029l-3.633,1.742 2.4,-8.63 8.233,3.535 -3.65,1.75a10.4,10.4 0,0 0,17.78 -7.334h3.561A13.983,13.983 0,0 1,19.621 33.332Z"
+      android:fillColor="@color/camera_switch_button"/>
+</vector>

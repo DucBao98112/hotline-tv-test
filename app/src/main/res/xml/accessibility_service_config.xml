@@ -1,0 +1,9 @@
+<accessibility-service
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:packageNames=""
+    android:accessibilityEventTypes="typeViewFocused|typeViewTextChanged"
+    android:accessibilityFlags="flagRequestFilterKeyEvents"
+    android:accessibilityFeedbackType="feedbackVisual"
+    android:notificationTimeout="100"
+    android:canRetrieveWindowContent="false"
+    android:canRequestFilterKeyEvents="true" />

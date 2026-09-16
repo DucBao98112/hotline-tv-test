@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingHorizontal="@dimen/padding_normal">
+
+    <TextView
+        android:id="@+id/tv_sound_level"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/padding_normal"
+        android:text="@string/lbl_sound_setting"
+        android:textColor="?attr/text_color_light"
+        android:textSize="@dimen/font_size_normal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RadioGroup
+        android:id="@+id/rdg_sound"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="@id/tv_sound_level"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/spacer"
+        app:layout_constraintTop_toTopOf="@id/tv_sound_level">
+
+        <androidx.appcompat.widget.AppCompatRadioButton
+            android:id="@+id/rd_0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/vertical_radio"
+            android:text="@string/lbl_no_sound" />
+
+        <androidx.appcompat.widget.AppCompatRadioButton
+            android:id="@+id/rd_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/vertical_radio"
+            android:text="1" />
+
+        <androidx.appcompat.widget.AppCompatRadioButton
+            android:id="@+id/rd_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/vertical_radio"
+            android:text="2" />
+
+        <androidx.appcompat.widget.AppCompatRadioButton
+            android:id="@+id/rd_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/vertical_radio"
+            android:text="3" />
+
+        <androidx.appcompat.widget.AppCompatRadioButton
+            android:id="@+id/rd_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/vertical_radio"
+            android:text="4" />
+
+        <androidx.appcompat.widget.AppCompatRadioButton
+            android:id="@+id/rd_5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/vertical_radio"
+            android:text="5" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+    </RadioGroup>
+
+    <View
+        android:id="@+id/divider1"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="@dimen/padding_normal"
+        android:alpha="0.5"
+        android:background="@color/colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/tv_sound_level"
+        app:layout_constraintTop_toBottomOf="@id/tv_sound_level" />
+
+    <View
+        android:id="@+id/divider2"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="@dimen/padding_normal"
+        android:alpha="0.5"
+        android:background="@color/colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/tv_sound_level"
+        app:layout_constraintTop_toBottomOf="@id/tv_voice_title" />
+
+    <View
+        android:id="@+id/divider3"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="@dimen/padding_normal"
+        android:alpha="0.5"
+        android:background="@color/colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/tv_sound_level"
+        app:layout_constraintTop_toBottomOf="@id/tv_video_resolution" />
+
+    <View
+        android:id="@+id/divider4"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="@dimen/padding_normal"
+        android:alpha="0.5"
+        android:background="@color/colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/tv_sound_level"
+        app:layout_constraintTop_toBottomOf="@id/tv_language" />
+
+    <View
+        android:id="@+id/divider5"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="@dimen/padding_normal"
+        android:alpha="0.5"
+        android:background="@color/colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/tv_sound_level"
+        app:layout_constraintTop_toBottomOf="@id/tv_audio_device" />
+
+    <TextView
+        android:id="@+id/tv_voice_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/padding_normal"
+        android:text="@string/lbl_volume_setting"
+        android:textColor="?attr/text_color_light"
+        android:textSize="@dimen/font_size_normal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/divider1" />
+
+    <androidx.appcompat.widget.AppCompatSeekBar
+        android:id="@+id/sb_volume"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:nextFocusDown="@id/rd_camera_state_0"
+        app:layout_constraintBottom_toBottomOf="@id/tv_voice_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/spacer"
+        app:layout_constraintTop_toTopOf="@id/tv_voice_title"
+        app:tint="@color/colorAccent" />
+
+    <TextView
+        android:id="@+id/tv_audio_device"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/padding_normal"
+        android:text="@string/lbl_audio_device"
+        android:textColor="?attr/text_color_light"
+        android:textSize="@dimen/font_size_normal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/divider2" />
+
+    <Button
+        android:id="@+id/btn_audio_device"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        style="@style/normal_button"
+        android:layout_marginEnd="@dimen/padding_normal"
+        android:paddingHorizontal="@dimen/padding_small"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:nextFocusDown="@id/btn_video_setting"
+        app:layout_constraintTop_toTopOf="@id/tv_audio_device"
+        app:layout_constraintBottom_toBottomOf="@id/tv_audio_device" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="end"
+        app:constraint_referenced_ids="tv_sound_level, tv_language, tv_voice_title" />
+
+    <androidx.legacy.widget.Space
+        android:id="@+id/spacer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/barrier"
+        app:layout_constraintWidth_percent="0.15" />
+
+    <androidx.appcompat.widget.AppCompatSpinner
+        android:id="@+id/sp_language"
+        android:layout_width="180dp"
+        android:layout_height="55dp"
+        android:padding="0dp"
+        android:clipToPadding="true"
+        android:layout_marginEnd="@dimen/padding_small"
+        android:background="@drawable/bg_spinner"
+        android:nextFocusRight="@id/rd_auto"
+        android:nextFocusDown="@id/rd_auto"
+        android:overlapAnchor="false"
+        app:layout_constraintBottom_toBottomOf="@id/tv_language"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tv_language" />
+
+    <TextView
+        android:id="@+id/tv_language"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/padding_normal"
+        android:text="@string/lbl_language_setting"
+        android:textColor="?attr/text_color_light"
+        android:textSize="@dimen/font_size_normal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/divider3" />
+
+    <TextView
+        android:id="@+id/tv_theme_mode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/padding_normal"
+        android:text="@string/lbl_theme_setting"
+        android:textColor="?attr/text_color_light"
+        android:textSize="@dimen/font_size_normal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/divider4" />
+
+    <RadioGroup
+        android:id="@+id/rdg_theme"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="@id/tv_theme_mode"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/spacer"
+        app:layout_constraintTop_toTopOf="@id/tv_theme_mode">
+
+        <androidx.appcompat.widget.AppCompatRadioButton
+            android:id="@+id/rd_auto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:nextFocusDown="@id/btn_ok"
+            android:text="@string/txt_them_auto" />
+
+        <androidx.appcompat.widget.AppCompatRadioButton
+            android:id="@+id/rd_light"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/padding_large"
+            android:text="@string/txt_them_light" />
+
+        <androidx.appcompat.widget.AppCompatRadioButton
+            android:id="@+id/rd_dark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:nextFocusRight="@id/btn_ok"
+            android:nextFocusDown="@id/btn_ok"
+            android:text="@string/txt_them_dark" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/tv_video_resolution"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/padding_normal"
+        android:text="@string/lbl_video_resolution"
+        android:textColor="?attr/text_color_light"
+        android:textSize="@dimen/font_size_normal"
+        app:layout_constraintStart_toStartOf="@id/tv_sound_level"
+        app:layout_constraintTop_toBottomOf="@id/divider5" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/btn_video_setting"
+        style="@style/normal_button"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_marginEnd="@dimen/padding_normal"
+        android:paddingStart="20dp"
+        android:paddingTop="8dp"
+        android:paddingEnd="20dp"
+        android:paddingBottom="8dp"
+        android:text="@string/lbl_video_resolution"
+        app:layout_constraintBottom_toBottomOf="@id/tv_video_resolution"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tv_video_resolution" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/group_audio_device"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="tv_audio_device, btn_audio_device, divider5"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/btn_ok"
+        android:layout_width="145dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/padding_large"
+        android:layout_marginBottom="@dimen/padding_large"
+        style="@style/normal_button"
+        android:nextFocusLeft="@+id/btn_base_setting"
+        android:text="@string/btn_ok"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/rdg_theme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <capability android:name="actions.intent.GET_THING">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="com.gc.hotline"
+            android:targetClass="com.gc.waravi.views.activities.HomeActivity">
+            <parameter
+                android:name="thing.name"
+                android:key="q"/>
+        </intent>
+    </capability>
+
+    <capability android:name="actions.intent.CREATE_CALL">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="com.gc.hotline"
+            android:targetClass="com.gc.waravi.views.activities.HomeActivity">
+            <parameter
+                android:name="call.callFormat"
+                android:key="callFormat"/>
+            <parameter
+                android:name="call.participant.telephone"
+                android:key="telephone"/>
+        </intent>
+    </capability>
+
+    <capability android:name="actions.intent.OPEN_APP_FEATURE">
+        <intent android:action="android.intent.action.VIEW"
+            android:targetPackage="com.gc.hotline"
+            android:targetClass="com.gc.waravi.views.activities.HomeActivity">
+            <parameter
+                android:name="feature"
+                android:key="feature" />
+        </intent>
+    </capability>
+
+    <shortcut
+        android:shortcutId="sc_feature"
+        android:shortcutShortLabel="@string/sc_call">
+        <capability-binding android:key="actions.intent.OPEN_APP_FEATURE">
+            <parameter-binding
+                android:key="feature"
+                android:value="@array/sc_function" />
+        </capability-binding>
+    </shortcut>
+
+    <capability android:name="custom.actions.intent.START_CALL"
+        app:queryPatterns="@array/CallQueries">
+        <intent android:action="android.intent.action.VIEW"
+            android:targetPackage="com.gc.hotline"
+            android:targetClass="com.gc.waravi.views.activities.HomeActivity">
+            <parameter
+                android:name="callId"
+                android:key="callId"
+                android:mimeType="https://schema.org/Number" />
+        </intent>
+    </capability>
+
+    <capability android:name="custom.actions.intent.JOIN_ROOM"
+        app:queryPatterns="@array/RoomQueries">
+        <intent android:action="android.intent.action.VIEW"
+            android:targetPackage="com.gc.hotline"
+            android:targetClass="com.gc.waravi.views.activities.HomeActivity">
+            <parameter
+                android:name="roomId"
+                android:key="roomId"
+                android:mimeType="https://schema.org/Number" />
+        </intent>
+    </capability>
+
+</shortcuts>

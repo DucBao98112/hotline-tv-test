@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_focused="true">
+        <layer-list>
+            <item android:drawable="@drawable/call_btn"
+                android:top="5dp"
+                android:bottom="5dp"
+                android:right="1dp"
+                android:left="1dp"/>
+            <item android:drawable="@drawable/call_btn_focus"/>
+        </layer-list>
+    </item>
+    <item>
+        <layer-list>
+            <item android:drawable="@drawable/call_btn"
+                android:top="5dp"
+                android:bottom="5dp"
+                android:right="1dp"
+                android:left="1dp"/>
+        </layer-list>
+    </item>
+</selector>

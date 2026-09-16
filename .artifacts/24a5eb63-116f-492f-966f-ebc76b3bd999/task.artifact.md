@@ -1,0 +1,5 @@
+- [x] Fix Orientation by Centralizing Mirroring logic
+    - [x] Remove manual person flip in `onFrameCaptured`
+    - [x] Remove manual background flip in `drawCenterCrop`
+- [ ] Verify upright and synchronized selfie view on TV
+- [ ] Update walkthrough

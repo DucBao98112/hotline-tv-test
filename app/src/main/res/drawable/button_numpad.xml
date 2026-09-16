@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_focused="true">
+        <layer-list>
+            <item android:drawable="@drawable/num_btn_focus"/>
+            <item
+                android:top="@dimen/numpad_key_padding"
+                android:bottom="@dimen/numpad_key_padding"
+                android:right="@dimen/numpad_key_padding"
+                android:left="@dimen/numpad_key_padding">
+                <shape android:shape="oval">
+                    <solid android:color="?attr/box_background_color"/>
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+    <item>
+        <layer-list>
+            <item
+                android:top="@dimen/numpad_key_padding"
+                android:bottom="@dimen/numpad_key_padding"
+                android:right="@dimen/numpad_key_padding"
+                android:left="@dimen/numpad_key_padding">
+                <shape android:shape="oval">
+                    <solid android:color="?attr/box_background_color"/>
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+</selector>

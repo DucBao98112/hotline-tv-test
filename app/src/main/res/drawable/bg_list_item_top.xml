@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_focused="true">
+        <layer-list>
+            <item
+                android:top="10dp"
+                android:left="10dp"
+                android:right="10dp"
+                android:bottom="10dp">
+                <shape>
+                    <corners android:radius="5dp" />
+                    <solid android:color="?attr/box_background_color" />
+                </shape>
+            </item>
+
+            <item android:drawable="@drawable/bg_tansyuku_focus"/>
+        </layer-list>
+    </item>
+    <item>
+        <layer-list>
+            <item
+                android:top="8dp"
+                android:left="8dp"
+                android:right="8dp"
+                android:bottom="8dp">
+                <shape>
+                    <corners android:radius="5dp" />
+                    <solid android:color="?attr/box_background_color" />
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+</selector>

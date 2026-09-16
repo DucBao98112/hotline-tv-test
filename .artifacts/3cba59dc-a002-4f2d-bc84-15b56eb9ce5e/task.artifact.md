@@ -1,0 +1,4 @@
+- [x] Add `@Volatile` thread-safe setter for `backgroundBitmap` in `CpuVideoProcessor.kt`
+- [x] Implement atomic double-buffered background swapping to eliminate black screen flicker
+- [x] Add diagnostic `showMaskOnly` rendering in `onFrameCaptured`
+- [x] Verify static analysis and Gradle build

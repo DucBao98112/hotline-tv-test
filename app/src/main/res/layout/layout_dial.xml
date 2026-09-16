@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <Button
+        android:id="@+id/btnKey1"
+        android:layout_width="@dimen/numpad_key_size"
+        android:layout_height="@dimen/numpad_key_size"
+        android:soundEffectsEnabled="false"
+        android:text="1"
+        style="@style/numpad_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <Button
+        android:id="@+id/btnKey2"
+        android:layout_width="@dimen/numpad_key_size"
+        android:layout_height="@dimen/numpad_key_size"
+        style="@style/numpad_button"
+        android:soundEffectsEnabled="false"
+        android:text="2"
+        android:layout_marginStart="2dp"
+        app:layout_constraintStart_toEndOf="@id/btnKey1"
+        app:layout_constraintTop_toTopOf="@id/btnKey1" />
+
+    <Button
+        android:id="@+id/btnKey3"
+        android:layout_width="@dimen/numpad_key_size"
+        android:layout_height="@dimen/numpad_key_size"
+        style="@style/numpad_button"
+        android:layout_marginStart="2dp"
+        android:soundEffectsEnabled="false"
+        android:text="3"
+        app:layout_constraintStart_toEndOf="@id/btnKey2"
+        app:layout_constraintTop_toTopOf="@id/btnKey1" />
+
+    <Button
+        android:id="@+id/btnKey4"
+        android:layout_width="@dimen/numpad_key_size"
+        android:layout_height="@dimen/numpad_key_size"
+        style="@style/numpad_button"
+        android:layout_marginTop="2dp"
+        android:soundEffectsEnabled="false"
+        android:text="4"
+        app:layout_constraintStart_toStartOf="@id/btnKey1"
+        app:layout_constraintTop_toBottomOf="@id/btnKey1" />
+
+    <Button
+        android:id="@+id/btnKey5"
+        android:layout_width="@dimen/numpad_key_size"
+        android:layout_height="@dimen/numpad_key_size"
+        style="@style/numpad_button"
+        android:layout_marginTop="2dp"
+        android:soundEffectsEnabled="false"
+        android:text="5"
+        app:layout_constraintStart_toStartOf="@id/btnKey2"
+        app:layout_constraintTop_toBottomOf="@id/btnKey1" />
+
+    <Button
+        android:id="@+id/btnKey6"
+        android:layout_width="@dimen/numpad_key_size"
+        android:layout_height="@dimen/numpad_key_size"
+        style="@style/numpad_button"
+        android:layout_marginTop="2dp"
+        android:soundEffectsEnabled="false"
+        android:text="6"
+        app:layout_constraintStart_toStartOf="@id/btnKey3"
+        app:layout_constraintTop_toBottomOf="@id/btnKey1" />
+
+    <Button
+        android:id="@+id/btnKey7"
+        android:layout_width="@dimen/numpad_key_size"
+        android:layout_height="@dimen/numpad_key_size"
+        style="@style/numpad_button"
+        android:layout_marginTop="2dp"
+        android:soundEffectsEnabled="false"
+        android:text="7"
+        app:layout_constraintStart_toStartOf="@id/btnKey1"
+        app:layout_constraintTop_toBottomOf="@id/btnKey4" />
+
+    <Button
+        android:id="@+id/btnKey8"
+        android:layout_width="@dimen/numpad_key_size"
+        android:layout_height="@dimen/numpad_key_size"
+        style="@style/numpad_button"
+        android:layout_marginTop="2dp"
+        android:soundEffectsEnabled="false"
+        android:text="8"
+        app:layout_constraintStart_toStartOf="@id/btnKey2"
+        app:layout_constraintTop_toBottomOf="@id/btnKey4" />
+
+    <Button
+        android:id="@+id/btnKey9"
+        android:layout_width="@dimen/numpad_key_size"
+        android:layout_height="@dimen/numpad_key_size"
+        style="@style/numpad_button"
+        android:layout_marginTop="2dp"
+        android:soundEffectsEnabled="false"
+        android:text="9"
+        app:layout_constraintStart_toStartOf="@id/btnKey3"
+        app:layout_constraintTop_toBottomOf="@id/btnKey4" />
+
+    <Button
+        android:id="@+id/btnKey0"
+        android:layout_width="@dimen/numpad_key_size"
+        android:layout_height="@dimen/numpad_key_size"
+        style="@style/numpad_button"
+        android:layout_marginTop="2dp"
+        android:soundEffectsEnabled="false"
+        android:text="0"
+        app:layout_constraintStart_toStartOf="@id/btnKey2"
+        app:layout_constraintTop_toBottomOf="@id/btnKey7" />
+
+    <ImageButton
+        android:id="@+id/btnKeyBackspace"
+        android:layout_width="@dimen/numpad_key_size"
+        android:layout_height="@dimen/numpad_key_size"
+        android:elevation="2dp"
+        android:scaleType="centerInside"
+        android:soundEffectsEnabled="false"
+        android:background="@drawable/backspace_btn"
+        app:layout_constraintStart_toStartOf="@id/btnKey3"
+        app:layout_constraintTop_toTopOf="@id/btnKey0"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

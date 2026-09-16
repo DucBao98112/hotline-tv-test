@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/action_container"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="8dp"
+    android:paddingBottom="8dp"
+    android:paddingHorizontal="16dp"
+    android:clipChildren="false"
+    android:clipToPadding="false"
+    android:background="#99000000">
+
+    <!-- Action Icons Row -->
+    <FrameLayout
+        android:id="@+id/view_switch_camera"
+        android:layout_width="0dp"
+        android:layout_height="70dp"
+        android:background="@drawable/bg_call_action_item"
+        android:focusable="true"
+        android:clickable="true"
+        app:layout_constraintEnd_toStartOf="@id/view_volume"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            android:gravity="center">
+            <ImageView
+                android:id="@+id/btn_switch_camera"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/talk_icn_blur" />
+            <TextView
+                android:id="@+id/tv_lbl_switch_camera"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="@string/lbl_choose_virtual_background"
+                android:textColor="@color/white"
+                android:textSize="10sp" />
+        </LinearLayout>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/view_volume"
+        android:layout_width="0dp"
+        android:layout_height="70dp"
+        android:focusable="true"
+        android:clickable="true"
+        android:background="@drawable/bg_call_action_item"
+        app:layout_constraintEnd_toStartOf="@id/view_background"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toEndOf="@id/view_switch_camera"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            android:gravity="center">
+            <ImageView
+                android:id="@+id/btn_voice_volume"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/talk_icn_vol" />
+            <TextView
+                android:id="@+id/tv_volume"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="@string/lbl_volume"
+                android:textColor="@color/white"
+                android:textSize="10sp" />
+        </LinearLayout>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/view_background"
+        android:layout_width="0dp"
+        android:layout_height="70dp"
+        android:focusable="true"
+        android:clickable="true"
+        android:background="@drawable/bg_call_action_item"
+        app:layout_constraintEnd_toStartOf="@id/view_camera"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toEndOf="@id/view_volume"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            android:gravity="center">
+            <ImageView
+                android:id="@+id/btn_toggle_background"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/talk_icn_blur" />
+            <TextView
+                android:id="@+id/tv_toggle_background"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="@string/lbl_background"
+                android:textColor="@color/white"
+                android:textSize="10sp" />
+        </LinearLayout>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/view_camera"
+        android:layout_width="0dp"
+        android:layout_height="70dp"
+        android:focusable="true"
+        android:clickable="true"
+        android:background="@drawable/bg_call_action_item"
+        app:layout_constraintEnd_toStartOf="@id/view_microphone"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toEndOf="@id/view_background"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            android:gravity="center">
+            <ImageView
+                android:id="@+id/btn_toggle_camera"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/button_menu_camera_level" />
+            <TextView
+                android:id="@+id/tv_toggle_camera"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="@string/lbl_camera_on"
+                android:textColor="@color/white"
+                android:textSize="10sp" />
+        </LinearLayout>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/view_microphone"
+        android:layout_width="0dp"
+        android:layout_height="70dp"
+        android:focusable="true"
+        android:clickable="true"
+        android:background="@drawable/bg_call_action_item"
+        app:layout_constraintEnd_toStartOf="@id/view_chat"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toEndOf="@id/view_camera"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            android:gravity="center">
+            <ImageView
+                android:id="@+id/btn_toggle_mic"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/button_menu_mic_level" />
+            <TextView
+                android:id="@+id/tv_toggle_mic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="@string/lbl_mic_on"
+                android:textColor="@color/white"
+                android:textSize="10sp" />
+        </LinearLayout>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/view_chat"
+        android:layout_width="0dp"
+        android:layout_height="70dp"
+        android:focusable="true"
+        android:clickable="true"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:background="@drawable/bg_call_action_item"
+        app:layout_constraintEnd_toStartOf="@id/btn_end_call_container"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toEndOf="@id/view_microphone"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center">
+                <ImageView
+                    android:id="@+id/btn_chat"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:src="@drawable/talk_icn_chat" />
+                <TextView
+                    android:id="@+id/tv_lbl_chat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="@string/lbl_menu_chat"
+                    android:textColor="@color/white"
+                    android:textSize="10sp" />
+            </LinearLayout>
+            <TextView
+                android:id="@+id/tv_chat_count"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:background="@drawable/circle_text_background"
+                android:backgroundTint="@android:color/holo_red_light"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:textSize="9sp"
+                android:layout_gravity="top|end"
+                android:translationX="4dp"
+                android:translationY="-2dp"
+                android:visibility="invisible" />
+        </FrameLayout>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/btn_end_call_container"
+        android:layout_width="0dp"
+        android:layout_height="70dp"
+        app:layout_constraintHorizontal_weight="0.8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/view_chat"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/btn_end_call"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="6dp"
+            android:background="@drawable/button_end_call"
+            android:text="@string/lbl_end_call"
+            style="@style/secondary_button"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:textSize="12sp"
+            android:focusable="true"
+            android:clickable="true"/>
+    </FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

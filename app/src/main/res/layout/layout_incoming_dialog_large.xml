@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="850dp"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="@dimen/padding_large"
+    android:background="@null"
+    android:keepScreenOn="true"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <FrameLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="165dp"
+        android:background="@drawable/bg_box_normal_white"
+        android:backgroundTint="@color/bg_gray"
+        android:alpha="0.3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <ImageView
+        android:id="@+id/imv_logo"
+        android:layout_width="100dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="@dimen/padding_large"
+        android:elevation="2dp"
+        android:src="@drawable/ic_logo_transparent"
+        app:layout_constraintBottom_toBottomOf="@id/container"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintStart_toStartOf="@id/container"
+        app:layout_constraintTop_toTopOf="@id/container" />
+
+    <TextView
+        android:id="@+id/tv_id"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/padding_normal"
+        android:layout_marginEnd="@dimen/padding_small"
+        android:elevation="2dp"
+        tools:text="123456789012345"
+        android:textColor="@android:color/black"
+        android:maxLines="1"
+        android:textSize="@dimen/font_number_large"
+        android:ellipsize="end"
+        app:layout_constraintEnd_toStartOf="@id/btn_accept_call"
+        app:layout_constraintStart_toEndOf="@id/imv_logo"
+        app:layout_constraintTop_toTopOf="@id/imv_logo" />
+
+    <TextView
+        android:id="@+id/tv_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/padding_normal"
+        android:elevation="2dp"
+        android:text="@string/incoming_dialog_incoming"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/font_size_large"
+        app:layout_constraintBottom_toBottomOf="@id/imv_logo"
+        app:layout_constraintStart_toEndOf="@id/imv_logo"
+        app:layout_constraintTop_toBottomOf="@+id/tv_id" />
+
+    <View
+        android:id="@+id/btn_accept_call"
+        android:layout_width="150dp"
+        android:layout_height="55dp"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:layout_marginEnd="5dp"
+        android:background="@drawable/button_start_call"
+        app:layout_constraintBottom_toBottomOf="@id/btn_decline_call"
+        app:layout_constraintEnd_toStartOf="@id/btn_decline_call"
+        app:layout_constraintTop_toTopOf="@id/btn_decline_call">
+        <requestFocus/>
+    </View>
+
+    <ImageView
+        android:id="@+id/imv_accept"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:contentDescription="icon-accept"
+        android:src="@drawable/call_1on1_icn"
+        android:layout_marginEnd="5dp"
+        app:tint="@color/white"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="@id/btn_accept_call"
+        app:layout_constraintEnd_toStartOf="@id/tv_accept"
+        app:layout_constraintTop_toTopOf="@id/tv_accept"
+        app:layout_constraintBottom_toBottomOf="@id/tv_accept"/>
+
+    <View
+        android:id="@+id/btn_decline_call"
+        android:layout_width="150dp"
+        android:layout_height="55dp"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:layout_marginEnd="@dimen/padding_small"
+        android:background="@drawable/button_end_call"
+        app:layout_constraintBottom_toBottomOf="@id/container"
+        app:layout_constraintEnd_toEndOf="@id/container"
+        app:layout_constraintTop_toTopOf="@id/container"/>
+
+    <ImageView
+        android:id="@+id/imv_decline"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:contentDescription="icon-decline"
+        android:src="@drawable/ic_decline_call"
+        android:layout_marginEnd="5dp"
+        app:tint="@color/white"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="@id/btn_decline_call"
+        app:layout_constraintEnd_toStartOf="@id/tv_decline"
+        app:layout_constraintTop_toTopOf="@id/tv_decline"
+        app:layout_constraintBottom_toBottomOf="@id/tv_decline"/>
+
+    <TextView
+        android:id="@+id/tv_accept"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/white"
+        android:text="@string/btn_accept"
+        android:textSize="@dimen/font_size_normal"
+        app:layout_constraintStart_toEndOf="@id/imv_accept"
+        app:layout_constraintTop_toTopOf="@id/btn_accept_call"
+        app:layout_constraintBottom_toBottomOf="@id/btn_accept_call"
+        app:layout_constraintEnd_toEndOf="@id/btn_accept_call"/>
+
+
+    <TextView
+        android:id="@+id/tv_decline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/white"
+        android:text="@string/btn_decline"
+        android:textSize="@dimen/font_size_normal"
+        app:layout_constraintStart_toEndOf="@id/imv_decline"
+        app:layout_constraintTop_toTopOf="@id/btn_decline_call"
+        app:layout_constraintBottom_toBottomOf="@id/btn_decline_call"
+        app:layout_constraintEnd_toEndOf="@id/btn_decline_call"/>
+
+    <Button
+        android:id="@+id/btn_cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/padding_normal"
+        style="@style/normal_button"
+        android:text="@string/btn_cancel"
+        android:textSize="@dimen/font_size_normal"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/group_call_control"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="btn_accept_call, btn_decline_call, tv_decline, tv_accept"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

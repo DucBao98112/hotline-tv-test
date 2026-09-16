@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_focused="true">
+        <layer-list>
+            <item
+                android:top="8dp"
+                android:left="8dp"
+                android:right="8dp"
+                android:bottom="8dp"
+                android:drawable="@drawable/bg_box_normal"/>
+
+            <item android:drawable="@drawable/bg_card_neon_border"/>
+        </layer-list>
+    </item>
+    <item>
+        <layer-list>
+            <item
+                android:top="8dp"
+                android:left="8dp"
+                android:right="8dp"
+                android:bottom="8dp"
+                android:drawable="@drawable/bg_box_normal"/>
+        </layer-list>
+    </item>
+</selector>

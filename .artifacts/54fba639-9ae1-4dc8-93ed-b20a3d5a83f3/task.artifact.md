@@ -1,0 +1,5 @@
+- [x] Add debug logging for frame metadata
+- [x] Refactor `scaleCenterCrop` to support H/V flipping
+- [x] Apply vertical flip to camera frame
+- [x] Apply vertical flip to background image
+- [x] Verify synchronization between frame and mask

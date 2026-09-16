@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/app_bg">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guide_vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.26" />
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimaryDark"
+        app:layout_constraintEnd_toStartOf="@id/guide_vertical"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/btn_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minWidth="100dp"
+        android:layout_marginStart="@dimen/padding_small"
+        android:layout_marginBottom="5dp"
+        style="@style/normal_button"
+        android:text="@string/txt_back"
+        android:src="@drawable/ic_arrow_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:tint="@color/white" />
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/padding_small"
+        android:layout_marginTop="@dimen/padding_small"
+        android:text="@string/lbl_setting"
+        android:textColor="@color/white"
+        android:textSize="@dimen/font_size_large"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_subtitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/padding_normal"
+        android:layout_marginVertical="@dimen/padding_normal"
+        android:gravity="start"
+        android:textColor="?attr/text_color_light"
+        android:textSize="@dimen/font_size_large"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/guide_vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="@string/lbl_base_setting" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/btn_base_setting"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="5dp"
+        android:layout_marginTop="@dimen/padding_small"
+        android:background="@drawable/list_item_background"
+        android:gravity="start|center_vertical"
+        android:nextFocusLeft="@+id/btn_back"
+        android:nextFocusUp="@+id/btn_back"
+        android:nextFocusDown="@id/btn_call_setting"
+        android:paddingHorizontal="15dp"
+        android:paddingVertical="10dp"
+        android:text="@string/lbl_base_setting"
+        android:textColor="@color/white"
+        android:textSize="@dimen/font_size_small"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        app:layout_constraintEnd_toStartOf="@id/guide_vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_title">
+        <requestFocus />
+    </androidx.appcompat.widget.AppCompatTextView>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/btn_call_setting"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="5dp"
+        android:background="@drawable/list_item_background"
+        android:gravity="start|center_vertical"
+        android:nextFocusLeft="@+id/btn_back"
+        android:nextFocusUp="@+id/btn_base_setting"
+        android:nextFocusDown="@id/btn_tos"
+        android:paddingHorizontal="15dp"
+        android:paddingVertical="10dp"
+        android:text="@string/lbl_option_setting"
+        android:textColor="@color/white"
+        android:textSize="@dimen/font_size_small"
+        app:layout_constraintEnd_toStartOf="@id/guide_vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_base_setting" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/btn_tos"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="5dp"
+        android:layout_marginVertical="3dp"
+        android:background="@drawable/list_item_background"
+        android:gravity="start|center_vertical"
+        android:nextFocusDown="@id/btn_about"
+        android:paddingHorizontal="15dp"
+        android:paddingVertical="10dp"
+        android:text="@string/lbl_term_of_service"
+        android:textColor="@color/white"
+        android:textSize="@dimen/font_size_small"
+        app:layout_constraintEnd_toStartOf="@id/guide_vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_call_setting" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/btn_about"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="5dp"
+        android:layout_marginVertical="3dp"
+        android:background="@drawable/list_item_background"
+        android:gravity="start|center_vertical"
+        android:paddingHorizontal="15dp"
+        android:paddingVertical="10dp"
+        android:text="@string/lbl_about_app"
+        android:textColor="@color/white"
+        android:textSize="@dimen/font_size_small"
+        app:layout_constraintEnd_toStartOf="@id/guide_vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_tos" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/btn_update"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="5dp"
+        android:layout_marginVertical="3dp"
+        android:background="@drawable/list_item_background"
+        android:gravity="start|center_vertical"
+        android:paddingHorizontal="15dp"
+        android:paddingVertical="10dp"
+        android:text="@string/btn_update"
+        android:textColor="@color/white"
+        android:textSize="@dimen/font_size_small"
+        app:layout_constraintEnd_toStartOf="@id/guide_vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_about" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/btn_restart"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="5dp"
+        android:layout_marginVertical="3dp"
+        android:background="@drawable/list_item_background"
+        android:gravity="start|center_vertical"
+        android:paddingHorizontal="15dp"
+        android:paddingVertical="10dp"
+        android:text="@string/btn_restart"
+        android:textColor="@color/white"
+        android:textSize="@dimen/font_size_small"
+        android:nextFocusDown="@id/btn_back"
+        app:layout_constraintEnd_toStartOf="@id/guide_vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_update" />
+
+    <androidx.leanback.widget.BrowseFrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="visible"
+        android:layout_marginTop="@dimen/padding_small"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/guide_vertical"
+        app:layout_constraintTop_toBottomOf="@id/tv_subtitle" />
+
+    <TextView
+        android:id="@+id/tv_func_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="?attr/text_color_light"
+        android:textSize="@dimen/font_size_normal"
+        app:layout_constraintBottom_toTopOf="@id/btn_func"
+        app:layout_constraintEnd_toEndOf="@id/fragment_container"
+        app:layout_constraintStart_toStartOf="@id/fragment_container"
+        app:layout_constraintTop_toTopOf="@id/fragment_container"
+        app:layout_constraintVertical_chainStyle="packed"
+        tools:text="最新版にアップデートします" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/btn_func"
+        style="@style/normal_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/padding_normal"
+        app:layout_constraintBottom_toBottomOf="@id/fragment_container"
+        app:layout_constraintEnd_toEndOf="@id/fragment_container"
+        app:layout_constraintStart_toStartOf="@id/fragment_container"
+        app:layout_constraintTop_toBottomOf="@id/tv_func_message"
+        tools:text="アップデート実行" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/group_func"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:constraint_referenced_ids="tv_func_message, btn_func" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

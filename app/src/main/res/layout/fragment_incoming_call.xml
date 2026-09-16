@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_call"
+    android:padding="40dp"
+    tools:context=".views.fragments.IncomingCallFragment">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.35" />
+
+    <RelativeLayout
+        android:id="@+id/layout_logo"
+        app:layout_constraintBottom_toBottomOf="@id/gl_center"
+        app:layout_constraintTop_toTopOf="@id/gl_center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/imv_logo"
+            android:layout_width="128dp"
+            android:layout_height="128dp"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/ic_logo_transparent" />
+
+    </RelativeLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/layout_logo"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_gravity="center"
+            android:id="@+id/lbl_caller_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            style="@style/base_text"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textSize="@dimen/font_number_large" />
+    </FrameLayout>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/btn_cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/padding_large"
+        style="@style/normal_button"
+        android:text="@string/btn_cancel"
+        android:textColor="@color/white"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="@id/gl_center_vertical"
+        app:layout_constraintEnd_toEndOf="@id/gl_center_vertical"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <TextView
+        android:id="@+id/txt_message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/padding_normal"
+        app:layout_constraintBottom_toTopOf="@id/btn_cancel"
+        android:layout_marginHorizontal="@dimen/padding_large"
+        android:visibility="invisible"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="@dimen/font_size_large" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_center_vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintGuide_percent="0.5"
+        android:orientation="vertical"/>
+
+    <ImageButton
+        android:id="@+id/btn_accept_call"
+        android:layout_width="120dp"
+        android:layout_height="@dimen/default_button_size"
+        android:background="@drawable/button_accept_call"
+        android:scaleType="fitCenter"
+        app:tint="@color/white"
+        android:layout_marginEnd="@dimen/padding_normal"
+        android:elevation="1dp"
+        app:layout_constraintEnd_toStartOf="@id/gl_center_vertical"
+        app:layout_constraintBottom_toTopOf="@+id/barrier1"
+        app:layout_constraintTop_toBottomOf="@id/layout_logo">
+        <requestFocus/>
+    </ImageButton>
+
+    <ImageButton
+        android:id="@+id/btn_decline_call"
+        android:layout_width="120dp"
+        android:layout_height="@dimen/default_button_size"
+        android:background="@drawable/button_decline_call"
+        android:scaleType="fitCenter"
+        android:layout_marginStart="@dimen/padding_normal"
+        android:elevation="1dp"
+        app:layout_constraintStart_toEndOf="@id/gl_center_vertical"
+        app:layout_constraintBottom_toTopOf="@+id/barrier1"
+        app:layout_constraintTop_toBottomOf="@id/layout_logo" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="sw_toggle_mic, sw_toggle_camera"
+        app:barrierDirection="top"/>
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/sw_toggle_mic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        app:tint="@color/white"
+        android:layout_marginEnd="@dimen/padding_normal"
+        android:scaleType="fitCenter"
+        android:text="@string/lbl_mic"
+        android:textColor="@color/white"
+        app:switchPadding="5dp"
+        android:src="@drawable/button_mic_level"
+        app:layout_constraintTop_toTopOf="@id/imv_microphone"
+        app:layout_constraintBottom_toBottomOf="@id/imv_microphone"
+        app:layout_constraintEnd_toStartOf="@id/gl_center_vertical"/>
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/sw_toggle_camera"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="5dp"
+        android:text="@string/lbl_camera"
+        android:textColor="@color/white"
+        app:switchPadding="5dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/button_camera_level"
+        app:layout_constraintStart_toEndOf="@id/imv_camera"
+        app:layout_constraintBottom_toBottomOf="@id/imv_camera"
+        app:layout_constraintTop_toTopOf="@id/imv_camera" />
+
+    <ImageView
+        android:id="@+id/imv_microphone"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/talk_icn_mic"
+        android:layout_marginTop="@dimen/padding_normal"
+        app:layout_constraintTop_toBottomOf="@id/txt_message"
+        app:layout_constraintEnd_toStartOf="@id/sw_toggle_mic"/>
+
+    <ImageView
+        android:id="@+id/imv_camera"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/talk_icn_video"
+        android:layout_marginStart="@dimen/padding_normal"
+        app:layout_constraintTop_toTopOf="@id/sw_toggle_mic"
+        app:layout_constraintBottom_toBottomOf="@id/sw_toggle_mic"
+        app:layout_constraintStart_toEndOf="@id/gl_center_vertical"/>
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/group_call_control"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="sw_toggle_camera, sw_toggle_mic, btn_accept_call,
+        btn_decline_call, imv_camera, imv_microphone"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

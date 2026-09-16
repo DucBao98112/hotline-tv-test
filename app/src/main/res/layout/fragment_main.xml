@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="4dp"
+    tools:context=".views.activities.HomeActivity">
+
+    <!-- Top Bar (Header) -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:paddingBottom="4dp">
+
+        <ImageView
+            android:id="@+id/imv_qr_code"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:elevation="1dp"
+            android:src="@drawable/qr_code"
+            android:background="@drawable/bg_box_normal"
+            android:backgroundTint="@color/white"
+            android:padding="2dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Tabs Container (Centered in Screen) -->
+        <FrameLayout
+            android:id="@+id/tabs_container"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:background="@drawable/tab_background"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.leanback.tab.LeanbackTabLayout
+                android:id="@+id/tabs"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                app:tabIconTint="?attr/tab_icon_color"
+                app:tabInlineLabel="true"
+                app:tabPadding="2dp"
+                app:tabIndicator="@null"
+                app:tabIndicatorHeight="0dp"
+                app:tabRippleColor="@null"
+                app:tabBackground="@drawable/tab_indicator"
+                app:tabSelectedTextColor="@android:color/white"
+                app:tabTextColor="?attr/text_color_light"
+                app:tabTextAppearance="@style/NormalTabTextAppearance"
+                android:visibility="invisible"/>
+
+            <androidx.leanback.tab.LeanbackTabLayout
+                android:id="@+id/fake_tabs"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                app:tabIconTint="?attr/tab_icon_color"
+                app:tabInlineLabel="true"
+                app:tabPadding="2dp"
+                app:tabIndicator="@null"
+                app:tabIndicatorHeight="0dp"
+                app:tabRippleColor="@null"
+                app:tabBackground="@drawable/tab_indicator"
+                app:tabSelectedTextColor="@android:color/white"
+                app:tabTextColor="?attr/text_color_light"
+                app:tabTextAppearance="@style/NormalTabTextAppearance"
+                android:visibility="visible"/>
+        </FrameLayout>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_setting"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            style="@style/secondary_button"
+            android:text="@string/lbl_setting"
+            android:minHeight="0dp"
+            android:textSize="12sp"
+            app:drawableStartCompat="@drawable/ic_setting"
+            app:drawableTint="?attr/text_color_light"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:id="@+id/divider_top"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#1A000000"
+        app:layout_constraintTop_toBottomOf="@id/layout_header" />
+
+    <!-- Bottom Info Section -->
+    <LinearLayout
+        android:id="@+id/layout_id_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:padding="8dp">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/btn_resetting_id"
+            android:layout_width="wrap_content"
+            android:layout_height="28dp"
+            android:minHeight="0dp"
+            android:elevation="1dp"
+            style="@style/secondary_button"
+            android:text="@string/lbl_id_register"
+            android:textSize="10sp"
+            android:paddingVertical="0dp"
+            android:paddingHorizontal="8dp" />
+
+        <TextView
+            android:id="@+id/tv_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:textColor="?attr/text_color_light"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            tools:text="ID: 123456" />
+    </LinearLayout>
+
+    <!-- Center Content -->
+    <androidx.leanback.tab.LeanbackViewPager
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginVertical="2dp"
+        app:layout_constraintTop_toBottomOf="@id/divider_top"
+        app:layout_constraintBottom_toTopOf="@id/layout_id_info"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
+        android:id="@+id/imv_connection_status"
+        android:layout_width="34dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="12dp"
+        android:src="@drawable/ic_connection_status"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

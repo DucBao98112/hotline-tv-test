@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="SpreadView">
+
+        <attr name="spread_center_color" format="color" />
+
+        <attr name="spread_radius" format="integer" />
+
+        <attr name="spread_spread_color" format="color" />
+
+        <attr name="spread_distance" format="integer" />
+
+        <attr name="spread_max_radius" format="integer" />
+
+        <attr name="spread_delay_milliseconds" format="integer" />
+    </declare-styleable>
+    
+    <declare-styleable name="ds">
+        <attr name="background_color" format="color"/>
+        <attr name="text_color_light" format="color"/>
+        <attr name="text_color_dark" format="color"/>
+        <attr name="tab_background_color" format="color"/>
+        <attr name="tab_icon_color" format="color"/>
+        <attr name="secondary_button_background_color" format="color"/>
+        <attr name="box_background_color" format="color"/>
+        <attr name="textbox_background_color" format="color"/>
+        <attr name="box_short_background_color" format="color"/>
+    </declare-styleable>
+</resources>

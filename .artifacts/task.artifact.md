@@ -1,0 +1,6 @@
+- [ ] Initialize Git repository in the current project folder
+- [ ] Configure `.gitignore` to ensure Android build files are excluded
+- [ ] Add all project files and commit
+- [ ] Add remote `https://github.com/DucBao98112/hotline-tv-test.git`
+- [ ] Create and switch to a new branch (e.g., `android-version-1.0.7.4`)
+- [ ] Push the new branch to GitHub

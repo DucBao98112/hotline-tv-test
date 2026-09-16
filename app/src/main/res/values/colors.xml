@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#00A3A3</color>
+    <color name="colorPrimaryDark">#1F6461</color>
+    <color name="colorAccent">#00BAB3</color>
+    <color name="colorAccent40">#96C2FF</color>
+    <color name="colorAccentDark">#7C9DCA</color>
+    <color name="yellow">#DFB44D</color>
+    <color name="red">#FF5722</color>
+    <color name="decline_button">#ff0000</color>
+    <color name="accept_button">#4ade80</color>
+    <color name="green">#4ade80</color>
+    <color name="orange">#ff6f00</color>
+    <color name="mic_button">#ffffff</color>
+    <color name="camera_button">#ffffff</color>
+    <color name="button_deactivate">#B6B4B4</color>
+    <color name="cancel_button">#ffffff</color>
+    <color name="delete_button">#1e3a8a</color>
+    <color name="erase_button">#1e3a8a</color>
+    <color name="camera_switch_button">#ffffff</color>
+    <color name="white">#ffffff</color>
+    <color name="black">#000</color>
+    <color name="bg_gray">#F0F2F6</color>
+    <color name="default_text">#5C5C5C</color>
+    <color name="chat_me_lime">#84CC20</color>
+    <color name="chat_me_focus">#BDFF62</color>
+    <color name="gray_text_color">#9CA3AF</color>
+    <color name="history_item_color">#5C5C5C</color>
+    <color name="bg_alert">#80DFB44D</color>
+
+    <!-- Modern Chat & Glassmorphism Colors -->
+    <color name="chat_panel_bg">#CC111827</color>
+    <color name="chat_bubble_me">#00BAB3</color>
+    <color name="chat_bubble_other">#26FFFFFF</color>
+    <color name="chat_text_main">#F9FAFB</color>
+    <color name="chat_input_bg">#1F2937</color>
+    <color name="chat_input_stroke">#374151</color>
+    <color name="chat_time_text">#9CA3AF</color>
+
+    <color name="bg_tab_light">#D6E5E3</color>
+    <color name="bg_tab_dark">#012e27</color>
+    <color name="button_border_color">#00BAB3</color>
+    <color name="bg_overlay_black">#72000000</color>
+    <color name="bg_dialog_gray">#334645</color>
+    <color name="gray">#637270</color>
+    <color name="bg_textbox_dark">#012e27</color>
+    <color name="textbox_border_color">#5F716F</color>
+    <color name="bg_short_light">#CBE8E2</color>
+    <color name="bg_short_dark">#0FFFFFFF</color>
+
+</resources>

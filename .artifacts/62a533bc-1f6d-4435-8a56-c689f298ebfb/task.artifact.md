@@ -1,0 +1,6 @@
+- [/] Ultimate GPU Performance & Stability
+    - [ ] Add YUV-to-RGB Shader to `EffectsShader.kt`
+    - [ ] Update `GlRenderer.kt` with YUV conversion and texture pooling
+    - [ ] Update `GpuVideoProcessor.kt` to use GPU-based YUV conversion
+    - [ ] Implement Double-Buffering in `UsbCameraSource.kt`
+    - [ ] Verify build and performance metrics

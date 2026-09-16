@@ -23,7 +23,10 @@ deploymentTargetDropDown.xml
 render.experimental.xml
 
 # Google Services (e.g. APIs or Firebase)
-# google-services.json
+google-services.json
+authServiceAccount.json
+*.jks
+*.keystore
 
 # Android Profiling
 *.hprof

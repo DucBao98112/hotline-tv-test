@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="sc_function">
+        <item>call</item>
+        <item>room</item>
+    </array>
+
+    <string-array name="CallQueries">
+        <item>start calling to $callId</item>
+        <item>call to $callId</item>
+        <item>make call to $callId</item>
+        <item>make a phone call to $callId</item>
+    </string-array>
+
+    <string-array name="RoomQueries">
+        <item>join room no $roomId</item>
+        <item>join a meeting with id $roomId</item>
+    </string-array>
+</resources>

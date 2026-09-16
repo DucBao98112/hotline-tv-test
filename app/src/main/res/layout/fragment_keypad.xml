@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/txt_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:maxLength="16"
+        android:textColor="?attr/text_color_light"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/layoutDial"
+        tools:text="123415151" />
+
+    <include
+        android:id="@+id/layoutDial"
+        layout="@layout/layout_dial"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txt_input"
+        app:layout_constraintBottom_toTopOf="@id/btn_keypad_call" />
+
+    <ImageButton
+        android:id="@+id/btn_keypad_call"
+        android:layout_width="140dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="6dp"
+        android:background="@drawable/bg_button_main_green"
+        android:padding="8dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/call_1on1_icn"
+        app:tint="@color/white"
+        android:elevation="2dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/layoutDial"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:contentDescription="@string/lbl_calling" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
